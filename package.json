@@ -1,0 +1,61 @@
+{
+  "name": "@fcostarodrigo/files",
+  "version": "1.0.0",
+  "description": "Wrapper for node read and write files API,",
+  "main": "src/index.js",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcostarodrigo/files.git"
+  },
+  "keywords": [
+    "fs",
+    "files",
+    "parse"
+  ],
+  "bugs": {
+    "url": "https://github.com/fcostarodrigo/files/issues"
+  },
+  "homepage": "https://github.com/fcostarodrigo/files#readme",
+  "scripts": {
+    "test": "knip && xo --fix src && node --test",
+    "prepare": "husky"
+  },
+  "author": "Rodrigo Fernandes da Costa",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^3.2.5",
+    "prettier-plugin-toml": "^2.0.1",
+    "recast": "^0.23.6",
+    "smol-toml": "^1.1.4",
+    "yaml": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "husky": "^9.0.11",
+    "knip": "^5.11.0",
+    "typescript": "^5.4.5",
+    "xo": "^0.58.0"
+  },
+  "xo": {
+    "prettier": true
+  },
+  "prettier": {
+    "singleQuote": false,
+    "bracketSpacing": true,
+    "trailingComma": "all",
+    "printWidth": 100
+  },
+  "knip": {
+    "ignore": [
+      "src/index.d.ts"
+    ],
+    "ignoreDependencies": [
+      "prettier-plugin-toml"
+    ]
+  }
+}
