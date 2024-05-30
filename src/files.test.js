@@ -9,7 +9,12 @@ const testCases = [
   { extension: "toml", fileContent: 'id = "Jf07pV7"\n' },
   { extension: "yaml", fileContent: "id: Jf07pV7\n" },
   { extension: "js", fileContent: 'console.log("Hello World!");\n' },
-  { extension: "ts", fileContent: 'console.log("Hello World!");\n' },
+  { extension: "jsx", fileContent: "const MyComponent = () => <div>Hello World!</div>;\n" },
+  { extension: "ts", fileContent: "const x: number = 1;\n" },
+  {
+    extension: "tsx",
+    fileContent: "const MyComponent = (props: Record<string, never>) => <div>Hello World!</div>;\n",
+  },
 ];
 
 after(async () => {

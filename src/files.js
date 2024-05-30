@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import prettier from "prettier";
 import { print as formatSource, parse as parseSource } from "recast";
-import typescriptParser from "recast/parsers/typescript.js";
+import typescriptParser from "recast/parsers/babel-ts.js";
 import { stringify as formatToml, parse as parseToml } from "smol-toml";
 import { stringify as formatYaml, parse as parseYaml } from "yaml";
 
@@ -31,7 +31,9 @@ const parsers = {
   ".yaml": (source) => parseYaml(source),
   ".yml": (source) => parseYaml(source),
   ".js": (source) => parseSource(source),
+  ".jsx": (source) => parseSource(source),
   ".ts": (source) => parseSource(source, { parser: typescriptParser }),
+  ".tsx": (source) => parseSource(source, { parser: typescriptParser }),
 };
 
 const formatters = {
@@ -40,7 +42,9 @@ const formatters = {
   ".yaml": (filePath, value) => formatWithPrettier(filePath, formatYaml(value)),
   ".yml": (filePath, value) => formatWithPrettier(filePath, formatYaml(value)),
   ".ts": formatSourceCode,
+  ".tsx": formatSourceCode,
   ".js": formatSourceCode,
+  ".jsx": formatSourceCode,
 };
 
 export async function readFile(filePath, options = {}) {

@@ -28,16 +28,17 @@
   "author": "Rodrigo Fernandes da Costa",
   "license": "MIT",
   "dependencies": {
+    "@babel/parser": "^7.24.6",
     "prettier": "^3.2.5",
     "prettier-plugin-toml": "^2.0.1",
-    "recast": "^0.23.6",
-    "smol-toml": "^1.1.4",
-    "yaml": "^2.4.1"
+    "recast": "^0.23.7",
+    "smol-toml": "^1.2.0",
+    "yaml": "^2.4.2"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.12.13",
     "husky": "^9.0.11",
-    "knip": "^5.11.0",
+    "knip": "^5.17.3",
     "typescript": "^5.4.5",
     "xo": "^0.58.0"
   },
@@ -51,11 +52,9 @@
     "printWidth": 100
   },
   "knip": {
-    "ignore": [
-      "src/index.d.ts"
-    ],
     "ignoreDependencies": [
-      "prettier-plugin-toml"
+      "prettier-plugin-toml",
+      "@babel/parser"
     ]
   }
 }
