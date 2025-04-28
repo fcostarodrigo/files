@@ -1,10 +1,10 @@
-import assert from "node:assert";
-import fs from "node:fs";
+import fs from "node:fs/promises";
 import path from "node:path";
-import { after, test } from "node:test";
+import { afterAll, assert, describe, it } from "vitest";
+
 import { readFile, writeFile } from "./files.js";
 
-const testCases = [
+const cases = [
   { extension: "json", fileContent: '{ "id": "Jf07pV7" }\n' },
   { extension: "toml", fileContent: 'id = "Jf07pV7"\n' },
   { extension: "yaml", fileContent: "id: Jf07pV7\n" },
@@ -17,20 +17,20 @@ const testCases = [
   },
 ];
 
-after(async () => {
-  for (const testCase of testCases) {
-    const filePath = path.format({ ext: testCase.extension, name: "test" });
-    await fs.promises.unlink(filePath); // eslint-disable-line no-await-in-loop
+afterAll(async () => {
+  for (const { extension } of cases) {
+    const filePath = path.format({ ext: extension, name: "test" });
+    await fs.unlink(filePath);
   }
 });
 
-for (const testCase of testCases) {
-  test(`Write and read ${testCase.extension} files`, async () => {
-    const filePath = path.format({ ext: testCase.extension, name: "test" });
-    await fs.promises.writeFile(filePath, testCase.fileContent);
+describe("files", () => {
+  it.each(cases)("should write and read $extension files", async ({ extension, fileContent }) => {
+    const filePath = path.format({ ext: extension, name: "test" });
+    await fs.writeFile(filePath, fileContent);
 
     await writeFile(filePath, await readFile(filePath));
 
-    assert.deepStrictEqual(await fs.promises.readFile(filePath, "utf8"), testCase.fileContent);
+    assert.deepStrictEqual(await fs.readFile(filePath, "utf8"), fileContent);
   });
-}
+});

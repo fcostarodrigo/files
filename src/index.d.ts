@@ -1,4 +1,4 @@
-export function readFile<Content>(
+export function readFile<Content = unknown>(
   filePath: string,
   options?: {
     defaultValue?: Content;
@@ -7,9 +7,9 @@ export function readFile<Content>(
   },
 ): Promise<Content>;
 
-export function writeFile<Content>(
+export function writeFile(
   filePath: string,
-  data: Content,
+  data: unknown,
   options?: {
     format?: boolean;
     extension?: string;

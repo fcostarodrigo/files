@@ -28,12 +28,12 @@ await fileExist("user.json"); // true
 
 ### Options
 
-Pass an object with the following properties as the last argument.
+The last argument is an object with extra options.
 
-- `extension`: Pretend the file has some extension.
-- `parse`: When reading a file, boolean to indicate if file should be parsed.
-- `defaultValue`: When reading a file, return default value if file doesn't exist
-- `format`: When writing a file, boolean to indicate if file should be formatted.
+- `extension`: Treat the file as if it has a specific extension.
+- `parse`: Boolean that indicates if the file should be parsed when reading a file.
+- `defaultValue`: Return default value if file doesn't exist When reading a file.
+- `format`: Boolean that indicates if the file should be formatted when writing a file.
 
 ### Available formats
 

@@ -22,34 +22,34 @@
   },
   "homepage": "https://github.com/fcostarodrigo/files#readme",
   "scripts": {
-    "test": "knip && xo --fix src && node --test",
+    "test": "knip && prettier --ignore-unknown --check . && eslint --report-unused-disable-directives --max-warnings 0 . && vitest run",
+    "fix": "prettier --ignore-unknown --write . && eslint --fix .",
     "prepare": "husky"
   },
   "author": "Rodrigo Fernandes da Costa",
   "license": "MIT",
   "dependencies": {
-    "@babel/parser": "^7.24.6",
-    "prettier": "^3.2.5",
-    "prettier-plugin-toml": "^2.0.1",
-    "recast": "^0.23.7",
-    "smol-toml": "^1.2.0",
-    "yaml": "^2.4.2"
+    "@babel/parser": "^7.27.0",
+    "prettier-plugin-toml": "^2.0.4",
+    "recast": "^0.23.11",
+    "smol-toml": "^1.3.4",
+    "yaml": "^2.7.1"
   },
   "devDependencies": {
-    "@types/node": "^20.12.13",
-    "husky": "^9.0.11",
-    "knip": "^5.17.3",
-    "typescript": "^5.4.5",
-    "xo": "^0.58.0"
-  },
-  "xo": {
-    "prettier": true
+    "@eslint/js": "^9.25.1",
+    "@types/node": "^22.15.3",
+    "@vitest/eslint-plugin": "^1.1.43",
+    "eslint": "^9.25.1",
+    "eslint-plugin-perfectionist": "^4.12.3",
+    "eslint-plugin-unicorn": "^59.0.0",
+    "husky": "^9.1.7",
+    "knip": "^5.50.5",
+    "prettier": "^3.5.3",
+    "vitest": "^3.1.2"
   },
   "prettier": {
-    "singleQuote": false,
-    "bracketSpacing": true,
     "trailingComma": "all",
-    "printWidth": 100
+    "printWidth": 120
   },
   "knip": {
     "ignoreDependencies": [
