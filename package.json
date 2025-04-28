@@ -1,6 +1,6 @@
 {
   "name": "@fcostarodrigo/files",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Wrapper for node read and write files API,",
   "main": "src/index.js",
   "type": "module",
